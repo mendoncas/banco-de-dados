@@ -1,5 +1,6 @@
-class Tupla {
-    constructor(item) {
-      this.item = item;
+class Tuple {
+    constructor(index, content) {
+      this.index = index
+      this.content = content;
     }
   }
