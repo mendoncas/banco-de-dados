@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- aplica a funcao hash devolve um indice de um bucket. -->
+
+<body style="background-color: slategrey;">
+    Dados
+    <input type="file" onchange="loadFile(this.files[0])" id="data">
+    <br>
+
+    Quantidade de páginas
+    <input type="text" name="pageLength" id="pageLength">
+    <br>
+
+    Quantidade de tuplas por página
+    <input type="text" name="pageQuantity" id="pageQuantity">
+    <br>
+
+    Número de buckets
+    <input type="text" name="bucketNumber" id="bucketQuantity">
+    <br>
+
+    Tamanho do bucket
+    <input type="number" name="lengthNumber" id="bucketSize">
+
+    <br>
+    <br>
+    <button onclick="iniciarBanco(
+        document.getElementById('pageQuantity').value,
+        document.getElementById('pageLength').value,
+        document.getElementById('bucketQuantity').value,
+        document.getElementById('bucketSize').value
+    )">teste</button>
+</body>
+</html>
+<script src="script.js"></script>
+<script src="Classes/Bucket.js"></script>
+<script src="Classes/Page.js"></script>
