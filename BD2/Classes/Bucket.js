@@ -20,5 +20,10 @@ class Bucket {
 
   // TODO
   // fazer a busca passando como parâmetro a string
-  searchString(string){}
+  searchString(string) {
+    this.content.forEach((tuple) => {
+      if (tuple.content == string) return tuple;
+    });
+    if (this.next != null) return this.next.searchString(string);
+  }
 }
