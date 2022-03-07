@@ -1,6 +1,6 @@
 class Tuple {
-    constructor(index, content) {
+    constructor(string, index) {
       this.index = index
-      this.content = content;
+      this.content = string;
     }
   }
