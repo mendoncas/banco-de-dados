@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- aplica a funcao hash devolve um indice de um bucket. -->
+
+<body style="background-color: slategrey;">
+    <div>
+
+    </div>
+    Dados
+    <input type="file" onchange="loadFile(this.files[0])" id="data">
+    <br>
+
+    Quantidade de tuplas por página
+    <input type="number" name="pageLength" onblur="checkPageQuantity(this)" id="pageLength">
+    <br>
+
+    Quantidade de páginas
+    <input type="number" name="pageAmount" id="pageAmount">
+    <br>
+
+
+    Tamanho do bucket
+    <input type="number" name="lengthNumber" id="bucketSize">
+    <br>
+
+    Número de buckets
+    <input type="number" name="bucketNumber" id="bucketQuantity">
+    <br>
+    <br>
+
+
+    <button onclick="iniciarBanco(
+        document.getElementById('pageAmount').value,
+        document.getElementById('pageLength').value,
+        document.getElementById('bucketSize').value,
+        document.getElementById('bucketQuantity').value,
+    )">iniciar banco</button>
+
+    <br>
+
+    <label>Buscar palavra-chave</label>
+    <input name="key" id="key">
+    <button onclick="searchWord()">pesquisar</button>
+    <br>
+    <button onclick="generateStatistics()">gerar estatísticas do banco</button>
+
+</body>
+
+</html>
+<script src="script.js"></script>
+<script src="Classes/Bucket.js"></script>
+<script src="Classes/Page.js"></script>
+<script src="Classes/Tupla.js"></script>
