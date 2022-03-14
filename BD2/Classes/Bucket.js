@@ -10,9 +10,10 @@ class Bucket {
     if (this.content.length < this.size)
       this.content.push(new Tuple(string, pageIndex));
     else {
+      colisions++;
       if (this.next == null) {
         this.next = new Bucket(this.size, this.index);
-        colisions++;
+        overflows++;
       }
       this.next.addTuple(string, pageIndex);
     }
@@ -22,13 +23,16 @@ class Bucket {
     return this.content.length >= this.size
   }
 
-  searchString(string) {
+  searchString(string, access = 0) {
     this.content.forEach((tuple) => {
+      access++
       if (tuple.content == string) {
-        console.log(`tupla encontrada no bucket ${this.index}, apontando para a página ${tuple.index}`)
+        console.log(`tupla encontrada no bucket ${this.index}\n 
+        com ${access} acessos à memória \n
+        apontando para a página ${tuple.index} k`)
         pages[tuple.index].searchString(tuple.content)
       }
     });
-    if (this.next != null) return this.next.searchString(string);
+    if (this.next != null) return this.next.searchString(string, access);
   }
 }

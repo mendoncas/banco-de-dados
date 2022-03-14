@@ -1,6 +1,7 @@
 var file; var table;
 var pages = []; var buckets = [];
 var colisions = 0;
+var overflows = 0;
 var bucketAmount = 0;
 
 async function loadFile(file) {
@@ -65,8 +66,9 @@ function generateStatistics() {
     Buckets utilizados: ${usedBuckets} 
     Buckets vazios: ${emptyBuckets} 
     Buckets lotados: ${fullBuckets}
+    Overflows: ${overflows}
     Colisões: ${colisions}
-    * Uma colisão é contada sempre que é necessário criar um novo bucket devido a um evento de overflow
+    * Colisões são contadas sempre que uma inserção falha devido a falta de espaço em um dado bucket
     `
   )
 }
